@@ -1,0 +1,29 @@
+
+
+<header class="w-full bg-gray-300  py-2">
+  <div class="container mx-auto flex justify-between">
+    <div class="logo">
+      <a href="/">Logo Here</a>
+    </div>
+    <div>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+
+        listElement: "ul",            
+        listItemElement: "li",        
+
+        listClass: "flex gap-4",  
+        listItemClass: "",  
+
+        listItemHasChildrenClass: "has-submenu", 
+        anchorClass: "",  
+        
+        activeListItemClass: "active",              
+        activeAnchorClass: "active",        
+
+        activeKey: eleventyNavigation.key,
+        showExcerpt: false
+
+      }) | safe }}
+    </div>
+  </div>
+</header>

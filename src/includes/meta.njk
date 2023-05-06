@@ -1,0 +1,28 @@
+{# We use eleventy-rss plugin absoluteUrl filter as helper for absolute URL generation #}
+
+{# General #}
+<meta name="description" content="{{ meta.description or site.description }}">
+<meta name="generator" content="{{ eleventy.generator }}">
+
+{# Open Graph #}
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ meta.title or site.title }}">
+<meta property="og:description" content="{{ meta.description or site.description }}">
+<meta property="og:url" content="{{ page.url | url | absoluteUrl(site.baseUrl) }}">
+<meta property="og:locale" content="{{  meta.locale or site.locale }}">
+
+{%- if meta.image -%}
+<meta property="og:image" content="{{ meta.image | url | absoluteUrl(site.baseUrl) }}">
+{%- endif -%}
+{# End Open Graph #}
+
+{# Twitter #}
+<meta name="twitter:card" content="{% if meta.image -%}summary_large_image{% else %}summary{% endif %}">
+<meta name="twitter:title" content="{{ title or meta.title }}">
+<meta name="twitter:description" content="{{ meta.description or site.description}}">
+{%- if meta.image -%}
+<meta property="twitter:image" content="{{ meta.image | url | absoluteUrl(site.baseUrl) }}">
+{%- endif -%}
+{# End Twitter #}
+
+

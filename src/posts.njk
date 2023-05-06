@@ -1,0 +1,33 @@
+---
+layout: base
+eleventyNavigation:
+  key: Articles
+  order: 3
+pagination:
+  data: collections.post
+  size: 12
+  alias: posts
+meta:
+  title: Posts archive
+  description: this is where you can find all our posts.
+---
+
+<section class="font-bold">
+  <h1 class="text-center mb-8">All Articles</h1>
+  <ul>
+    {% for post in posts %}
+      <li class="">
+        <a class="block text-center rounded-md w-full bg-gray-200 py-4 mb-2 hover:bg-gray-300" href="{{post.url}}">{{ post.data.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="w-full flex justify-center gap-4 py-4">
+    {% if pagination.href.previous %}
+      <a href="{{pagination.href.previous}}">Previous Page</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{pagination.href.next}}">Next Page</a>
+    {% endif %}
+  </div>
+</section>

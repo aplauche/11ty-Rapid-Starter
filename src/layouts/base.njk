@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang or site.lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site.title }} - {{ title or meta.title }}</title>
+    {% include "meta.njk" %}
+  </head>
+
+  <body>
+
+    {% include "header.njk" %}
+
+    <main id="main">
+      
+        {{ content | safe }}
+
+    </main>
+
+    {% include "footer.njk" %}
+
+    <script type="module" src="{{ '/assets/js/index.js' | url }}"></script>
+    
+  </body>
+</html>
